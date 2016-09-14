@@ -3,21 +3,16 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
-
     defaultConfig {
+        minSdkVersion 16
         targetSdkVersion 23
-        versionCode Integer.parseInt(project.VERSION_CODE)
-        version project.VERSION_NAME
+        versionCode 1
+        versionName "1.0.0"
     }
     buildTypes {
         release {
             minifyEnabled false
-            debuggable false
-        }
-
-        debug {
-            minifyEnabled false
-            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
@@ -25,6 +20,3 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
-
-
-apply from: '../gradle-mvn-push.gradle'
